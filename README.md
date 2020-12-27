@@ -28,6 +28,6 @@ HDiffPatch
 
 ![alt tag](https://github.com/reproteq/DiffPatchWpf/blob/main/DiffPatchWpf-screenshoot.png) 
 
-[![Everything Is AWESOME]](https://www.youtube.com/watch?v=EqFH9XTSpN8 "Everything Is AWESOME")
 
-https://www.youtube.com/watch?v=EqFH9XTSpN8
+
+![alt tag](https://www.youtube.com/watch?v=EqFH9XTSpN8)
