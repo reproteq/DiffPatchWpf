@@ -1,6 +1,6 @@
 # DiffPatchWpf
 DiffPatchWpf  is binary patch maker 
-
+files max 4gb
 
 compare two binary files
 save the differences in a patch.ips file
