@@ -17,3 +17,10 @@ now you can apply this patch in other files
 load other-crash.bin file1
 load patch.ips
 click patch button for save file patched.bin
+
+
+my source code is based on this project
+
+https://github.com/sisong/HDiffPatch
+
+HDiffPatch
