@@ -1,6 +1,9 @@
 # DiffPatchWpf
 DiffPatchWpf  is binary patch maker 
-files max 4gb
+
+a C\C++ library and command-line tools for Diff & Patch between binary files ;
+create small delta/differential; 
+support large files and limit memory requires when diff & patch.
 
 compare two binary files
 save the differences in a patch.ips file
