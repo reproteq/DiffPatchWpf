@@ -62,6 +62,9 @@ https://www.youtube.com/watch?v=EqFH9XTSpN8
 
 
 Microsoft Visual Studio Community 2019
+
 Versión 16.7.7
+
 .NETFramework,Version=v4.7.2
-.
+
+Tested in windows 10x64bits
