@@ -15,7 +15,6 @@ Apply the patch in another binary fast and easy.
 you can make and patch any files for : srs, ecu , bsi, dash , rooms , iso, image , etc ....  very fast.
 
 
-
 example: 
 
 load orifile.bin  file 1 
@@ -60,3 +59,9 @@ patch usage: hpatchz [options] oldPath diffFile outNewPath
 
 
 https://www.youtube.com/watch?v=EqFH9XTSpN8
+
+
+Microsoft Visual Studio Community 2019
+Versión 16.7.7
+.NETFramework,Version=v4.7.2
+.
