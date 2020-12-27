@@ -30,11 +30,15 @@ click patch button for save file orifile-patched.bin
 
 
 This code uses this project HDiffPatch for some of its functions.
+
 https://github.com/sisong/HDiffPatch
+
 You can also use the executables from the command line
+
 hdiffz.exe
 diff command line usage:
 diff usage: hdiffz [options] oldPath newPath outDiffFile
+
 hpatchz.exe
 patch command line usage:
 patch usage: hpatchz [options] oldPath diffFile outNewPath
