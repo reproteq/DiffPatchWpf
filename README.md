@@ -24,3 +24,6 @@ my source code is based on this project
 https://github.com/sisong/HDiffPatch
 
 HDiffPatch
+
+
+![alt tag](https://github.com/reproteq/DiffPatchWpf/blob/main/DiffPatchWpf-screenshoot.png) 
