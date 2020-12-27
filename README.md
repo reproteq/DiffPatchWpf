@@ -30,4 +30,4 @@ HDiffPatch
 
 
 
-![alt tag](https://www.youtube.com/watch?v=EqFH9XTSpN8)
+https://www.youtube.com/watch?v=EqFH9XTSpN8
