@@ -106,24 +106,26 @@ namespace DiffPatchWpf
         //-----------------btnDiff------------------------------------------
         private void btnDiff_Click(object sender, RoutedEventArgs e)
         {
-            OutputBlock.Text = "Run Diff Algo" + "\r\n";           
+            OutputBlock.Text = "Run Diff Algo" + "\r\n";
+            string quote = "\"";
             var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
             OutputBlock.Text += "Path " + currentDirectory + "\r\n"; // output view
-            var exePathDiff = currentDirectory + @"\hdiffz.exe";  // path to diff.exe    
+            //var exePathDiff = currentDirectory + @"\hdiffz.exe";  // path to diff.exe    
+            var exePathDiff = currentDirectory + @"\hdiffz.exe";  // path to diff.exe  
             OutputBlock.Text += "hdiffz " + exePathDiff + "\r\n"; // output viewer
-
             string varfile1 = tboxFile1.Text;// get tbox file1 path
             string filename1 = Path.GetFileName(varfile1);
-            string strfile1 = Path.GetFileNameWithoutExtension(filename1);
-             
+            string strfile1 = Path.GetFileNameWithoutExtension(filename1);             
             var patchname = currentDirectory + @"\"+ strfile1 + "-patch.ips";   // output file patchname
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-
             System.Diagnostics.Process process1;
             process1 = new System.Diagnostics.Process();
             process1.StartInfo.FileName = "cmd.exe";
-            process1.StartInfo.Arguments = "/k start " + exePathDiff + " -f -m-0 -C-no -s-16m " + varfile1 + " " + varfile2 + " " + patchname + " & exit"; 
-
+            string Diffcommand = "/k start " + exePathDiff  + " -f -m-0 -C-no -s-16m " + quote + varfile1 + quote + " " + quote + varfile2 + quote+ " " + quote + patchname + quote + " & exit";
+            Debug.WriteLine(Diffcommand);
+            //string Diffcommand = "/k start " + exePathDiff + " -f -m-0 -C-no -s-16m " + varfile1 + " " + varfile2 + " " + patchname + " & exit";
+            process1.StartInfo.Arguments = Diffcommand;
+            OutputBlock.Text += "Cmd " + Diffcommand + "\r\n";
             OutputBlock.Text += "Start Diff ..." + "\r\n";
             process1.Start();              
             process1.WaitForExit(2);
@@ -144,29 +146,26 @@ namespace DiffPatchWpf
         //-----------------btnPatch ---------------------------------------
         private void btnPatch_Click(object sender, RoutedEventArgs e)
         {
-            OutputBlock.Text = "Run Patch Algo" + "\r\n";          
+            OutputBlock.Text = "Run Patch Algo" + "\r\n";
+            string quote = "\"";
             var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
             OutputBlock.Text += "Path " + currentDirectory + "\r\n"; // output view
-            var exePathPatch = currentDirectory + @"\hpatchz.exe"; // path to patcher.exe
-
-           
-       
+            var exePathPatch = currentDirectory + @"\hpatchz.exe"; // path to patcher.exe         
             OutputBlock.Text += "hpatchz " + exePathPatch + "\r\n"; // output viewer
-
-
             string varfile1 = tboxFile1.Text;// get tbox file1 path
             string filename1 = Path.GetFileName(varfile1);
             string strfile1 = Path.GetFileNameWithoutExtension(filename1);
-
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-
             var patchedfilename = currentDirectory + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
-
             System.Diagnostics.Process process2;
             process2 = new System.Diagnostics.Process();
-            process2.StartInfo.FileName = "cmd.exe";
-            process2.StartInfo.Arguments = "/k start " + exePathPatch + " " + varfile1 + " " + varfile2 + " " + patchedfilename + " & exit";
+            process2.StartInfo.FileName = "cmd.exe";            
+            string Patchcommand = "/k start " + exePathPatch + " " + quote + varfile1 + quote + " " + quote + varfile2 + quote + " " + quote + patchedfilename + quote + " & exit";
+            //string Patchcommand = "/k start " + exePathPatch + " " + varfile1 + " " + varfile2 + " " + patchedfilename + " & exit";
+            process2.StartInfo.Arguments = Patchcommand;
+            Debug.WriteLine(Patchcommand);
             process2.Start();
+            OutputBlock.Text += "Cmd " + Patchcommand + "\r\n";
             OutputBlock.Text += "Start Patching ..." + "\r\n";
             process2.WaitForExit(2);
             process2.Close();
