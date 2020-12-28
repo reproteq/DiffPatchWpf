@@ -29,7 +29,7 @@ namespace DiffPatchWpf
         {
             InitializeComponent();
             Debug.WriteLine("Reproteq Diff Patch v1.0");
-            OutputBlock.Text = "Reproteq Diff Patch v1.0  Author:TT 2021" + "\r\n";
+            OutputBlock.Text = "Reproteq Diff Patch v1.1  Author:TT 2021" + "\r\n";
 
 
         }
@@ -122,15 +122,17 @@ namespace DiffPatchWpf
             System.Diagnostics.Process process1;
             process1 = new System.Diagnostics.Process();
             process1.StartInfo.FileName = "cmd.exe";
-            process1.StartInfo.Arguments = "/k start " + exePathDiff + " " + varfile1 + " " + varfile2 + " " + patchname + " & exit"; 
+            process1.StartInfo.Arguments = "/k start " + exePathDiff + " -f -m-0 -C-no -s-16m " + varfile1 + " " + varfile2 + " " + patchname + " & exit"; 
 
             OutputBlock.Text += "Start Diff ..." + "\r\n";
             process1.Start();              
             process1.WaitForExit(2);
             process1.Close();
             OutputBlock.Text += "End Diff Succes Ok!!  patch.ips is created" + "\r\n";
+            OutputBlock.Text += "Here is Patch file " + patchname + "\r\n";
+            OutputBlock.Text += "Thanks for use this tool " + "\r\n";
 
-    
+
 
         }
 
@@ -169,7 +171,8 @@ namespace DiffPatchWpf
             process2.WaitForExit(2);
             process2.Close();
             OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + "\r\n";
-
+            OutputBlock.Text += "Here is Patched file " + patchedfilename + "\r\n";
+            OutputBlock.Text += "Thanks for use this tool " + "\r\n";
 
         }
         // ------------------ end btnPatch --------------------------------

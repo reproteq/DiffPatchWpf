@@ -1,0 +1,14 @@
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\bin\x86\Release\DiffPatchWpf.exe.config
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\bin\x86\Release\DiffPatchWpf.exe
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\bin\x86\Release\DiffPatchWpf.pdb
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\MainWindow.g.cs
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\App.g.cs
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf_MarkupCompile.cache
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf_MarkupCompile.lref
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\MainWindow.baml
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf.g.resources
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf.Properties.Resources.resources
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf.csproj.GenerateResource.cache
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf.csproj.CoreCompileInputs.cache
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf.exe
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x86\Release\DiffPatchWpf.pdb
