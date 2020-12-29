@@ -30,18 +30,12 @@ namespace DiffPatchWpf
             InitializeComponent();
             Debug.WriteLine("Reproteq Diff Patch v1.0");
             OutputBlock.Text = "Reproteq Diff Patch v1.1  Author:TT 2021" + "\r\n";
-             
+            
             var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
             if (currentDirectory.Contains(" ")) 
             { MessageBox.Show("Error . To run this program the path does not have to contain spaces or other strange characters.please run this program from another path example C:\\Users\\yourUser\\Desktop\\DiffPatchWpf\\DiffPatchWpf.exe", "Alert"); }
            
-
-
         }
-
- 
-
-
 
         //--------------------- btn open file1 -----------------------------------
         private void btnFile1_Click(object sender, RoutedEventArgs e)
@@ -67,7 +61,6 @@ namespace DiffPatchWpf
                 tboxFile1.Text = sFilenames;
 
                 OutputBlock.Text += "Loaded File1 >>> " + sFilenames + "\r\n";
-
             }
             //---------------------------- </ btn open file1 > ----------
         }
@@ -99,13 +92,10 @@ namespace DiffPatchWpf
                 tboxFile2.Text = sFilenames2;
 
                 OutputBlock.Text += "Loaded File2 >>> " + sFilenames2 + "\r\n";
-
             }
             //---------------------------- </ btn open file2 > ----------
         }
         // ------------------ end btn2 ----------------------------------------
-
-
 
 
         //-----------------btnDiff------------------------------------------
@@ -120,8 +110,10 @@ namespace DiffPatchWpf
             OutputBlock.Text += "hdiffz " + exePathDiff + "\r\n"; // output viewer
             string varfile1 = tboxFile1.Text;// get tbox file1 path
             string filename1 = Path.GetFileName(varfile1);
-            string strfile1 = Path.GetFileNameWithoutExtension(filename1);             
-            var patchname = currentDirectory + @"\"+ strfile1 + "-patch.ips";   // output file patchname
+            string strfile1 = Path.GetFileNameWithoutExtension(filename1);
+            string file1pat = Path.GetDirectoryName(varfile1);
+            //var patchname = currentDirectory + @"\"+ strfile1 + "-patch.ips";   // output file patchname
+            var patchname = file1pat + @"\" + strfile1 + "-patch.ips";   // output file patchname            
             string varfile2 = tboxFile2.Text; // get tbox file2 path
             System.Diagnostics.Process process1;
             process1 = new System.Diagnostics.Process();
@@ -139,13 +131,7 @@ namespace DiffPatchWpf
             OutputBlock.Text += "Here is Patch file " + patchname + "\r\n";
             OutputBlock.Text += "Thanks for use this tool " + "\r\n";
             MessageBox.Show("Done File Saved in " + "\r\n" + patchname , "Diff Ok!");
-
-
-
         }
-
-
-
         //-----------------end btnDiff -------------------------------------
 
 
@@ -162,7 +148,9 @@ namespace DiffPatchWpf
             string filename1 = Path.GetFileName(varfile1);
             string strfile1 = Path.GetFileNameWithoutExtension(filename1);
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-            var patchedfilename = currentDirectory + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
+            string file2pat = Path.GetDirectoryName(varfile2);
+            //var patchedfilename = currentDirectory + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
+            var patchedfilename = file2pat + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
             System.Diagnostics.Process process2;
             process2 = new System.Diagnostics.Process();
             process2.StartInfo.FileName = "cmd.exe";            
@@ -179,21 +167,11 @@ namespace DiffPatchWpf
             OutputBlock.Text += "Here is Patched file " + patchedfilename + "\r\n";
             OutputBlock.Text += "Thanks for use this tool " + "\r\n";
             MessageBox.Show("Done File Saved in " + "\r\n" + patchedfilename, "Patched OK!");
-
         }
         // ------------------ end btnPatch --------------------------------
 
-
-
-
-
-
-
-
     }
     //---------------------- end main
-
-
 
 }
 // ------------ end namespace
