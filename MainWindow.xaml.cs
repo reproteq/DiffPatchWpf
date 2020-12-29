@@ -30,6 +30,11 @@ namespace DiffPatchWpf
             InitializeComponent();
             Debug.WriteLine("Reproteq Diff Patch v1.0");
             OutputBlock.Text = "Reproteq Diff Patch v1.1  Author:TT 2021" + "\r\n";
+             
+            var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
+            if (currentDirectory.Contains(" ")) 
+            { MessageBox.Show("Error . To run this program the path does not have to contain spaces or other strange characters.please run this program from another path example C:\\Users\\yourUser\\Desktop\\DiffPatchWpf\\DiffPatchWpf.exe", "Alert"); }
+           
 
 
         }
@@ -133,6 +138,7 @@ namespace DiffPatchWpf
             OutputBlock.Text += "End Diff Succes Ok!!  patch.ips is created" + "\r\n";
             OutputBlock.Text += "Here is Patch file " + patchname + "\r\n";
             OutputBlock.Text += "Thanks for use this tool " + "\r\n";
+            MessageBox.Show("Done File Saved in " + "\r\n" + patchname , "Diff Ok!");
 
 
 
@@ -172,6 +178,7 @@ namespace DiffPatchWpf
             OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + "\r\n";
             OutputBlock.Text += "Here is Patched file " + patchedfilename + "\r\n";
             OutputBlock.Text += "Thanks for use this tool " + "\r\n";
+            MessageBox.Show("Done File Saved in " + "\r\n" + patchedfilename, "Patched OK!");
 
         }
         // ------------------ end btnPatch --------------------------------
