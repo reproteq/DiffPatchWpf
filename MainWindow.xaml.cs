@@ -118,7 +118,7 @@ namespace DiffPatchWpf
             System.Diagnostics.Process process1;
             process1 = new System.Diagnostics.Process();
             process1.StartInfo.FileName = "cmd.exe";
-            string Diffcommand = "/k start " + exePathDiff  + " -f -m-0 -C-no -s-16m " + quote + varfile1 + quote + " " + quote + varfile2 + quote+ " " + quote + patchname + quote + " & exit";
+            string Diffcommand = "/k start " + exePathDiff  + " -f -m-0 -C-no " + quote + varfile1 + quote + " " + quote + varfile2 + quote+ " " + quote + patchname + quote + " & exit";
             Debug.WriteLine(Diffcommand);
             //string Diffcommand = "/k start " + exePathDiff + " -f -m-0 -C-no -s-16m " + varfile1 + " " + varfile2 + " " + patchname + " & exit";
             process1.StartInfo.Arguments = Diffcommand;
