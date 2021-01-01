@@ -234,7 +234,7 @@ namespace DiffPatchWpf
                     string hexTrim = String.Concat(hex.Where(c => !Char.IsWhiteSpace(c)));
                     int value = Convert.ToInt32(hexTrim, 16);
                     byte byteVal = Convert.ToByte(value);
-                    OutputBlock.Text += "Addr"+  strpart1 + " Val" +strpart2+ saltli;
+                    OutputBlock.Text += "Addr "+  strpart1 + " Val " +strpart2+ saltli;
                     //------------------change values in positions
                     using (var stream = new FileStream(patchedfilename, FileMode.Open, FileAccess.ReadWrite))
                     {
