@@ -37,8 +37,7 @@ click patch button for save file orifile-patched.bin
 
 
 
-https://www.youtube.com/watch?v=EqFH9XTSpN8
-
+https://youtu.be/EpyuF4t5MWk
 
 Microsoft Visual Studio Community 2019
 
