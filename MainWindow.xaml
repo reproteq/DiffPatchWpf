@@ -5,32 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiffPatchWpf"
         mc:Ignorable="d"
-        Title="REPROTEQ  Diff Patcher v1.1" Height="768.933" Width="678.126" ResizeMode="NoResize">
+        Title="REPROTEQ  Diff Patcher v1.2" Height="768.933" Width="678.126" ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="269*"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="486" Margin="10,227,0,0" Stroke="Black" VerticalAlignment="Top" Width="636"/>
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="71" Margin="10,96,0,0" Stroke="Black" VerticalAlignment="Top" Width="636" Grid.ColumnSpan="2"/>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Menu">
+                    <MenuItem Header="_About" Click="MenuItem_Click" />
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="71" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="636" Grid.ColumnSpan="2"/>
+                    <Separator />
+                    <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
 
 
-        <ScrollViewer Name="Scroller" Margin="16,236,32,48.8" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="449" Margin="10,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="636"/>
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="71" Margin="10,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="636"/>
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="71" Margin="10,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="636"/>
+
+
+        <ScrollViewer Name="Scroller"  Margin="16,273,32,29" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
             <TextBlock Name="OutputBlock"  FontFamily="Consolas" Padding="4" Height="Auto" FontSize="9" Width="597" TextWrapping="Wrap" />
         </ScrollViewer>
-        <Label Name="Label1" Content="File Ori" VerticalAlignment="Top" HorizontalAlignment="Left" Width="54" Height="26" Margin="9,6,0,0"/>
-        <Label Name="Label2" Content="File Mod / Patch" HorizontalAlignment="Left" Margin="9,98,0,0" VerticalAlignment="Top" Height="26" Width="136" Grid.ColumnSpan="2"/>
-        <Button Name="btnFile1" Content="File1" HorizontalAlignment="Left" Margin="15,36,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="btnFile1_Click"/>
-        <Button Name="btnFile2" Content="File2" HorizontalAlignment="Left" Margin="16,124,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="btnFile2_Click"/>
-        <Button Name="btnDiff" Content="Diff" HorizontalAlignment="Left" Margin="9,180,0,0" VerticalAlignment="Top" Width="280" Height="30" Click="btnDiff_Click"/>
-        <TextBox Name="tboxFile1" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="521" Margin="109,36,0,0" Grid.ColumnSpan="2"/>
-        <TextBox Name="tboxFile2" HorizontalAlignment="Left" Height="20" Margin="109,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="521" Grid.ColumnSpan="2"/>
-        <Button Name="btnPatch" Content="Patch" HorizontalAlignment="Left" Margin="366,180,0,0" VerticalAlignment="Top" Width="280
+
+        <Label Name="Label1" Content="File Ori" VerticalAlignment="Top" HorizontalAlignment="Left" Width="54" Height="26" Margin="9,28,0,0"/>
+        <Label Name="Label2" Content="File Mod / Patch" HorizontalAlignment="Left" Margin="9,123,0,0" VerticalAlignment="Top" Height="26" Width="136"/>
+        <Button Name="btnFile1" Content="File1" HorizontalAlignment="Left" Margin="15,58,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="btnFile1_Click"/>
+        <Button Name="btnFile2" Content="File2" HorizontalAlignment="Left" Margin="16,149,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="btnFile2_Click"/>
+        <Button Name="btnDiff" Content="Diff" HorizontalAlignment="Left" Margin="9,218,0,0" VerticalAlignment="Top" Width="280" Height="30" Click="btnDiff_Click"/>
+        <TextBox Name="tboxFile1" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="521" Margin="109,58,0,0"/>
+        <TextBox Name="tboxFile2" HorizontalAlignment="Left" Height="20" Margin="109,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="521"/>
+        <Button Name="btnPatch" Content="Patch" HorizontalAlignment="Left" Margin="366,218,0,0" VerticalAlignment="Top" Width="280
                 " Height="30" Click="btnPatch_Click"/>
-        <Label Name="labelSoft" Content="Reproteq 2021" HorizontalAlignment="Left" Margin="291,713,0,-0.8" VerticalAlignment="Top" Width="159" Height="27"/>
+        <Label Name="labelSoft" Content="Copyright 2021 Reproteq®" HorizontalAlignment="Left" Margin="269,708,0,0" VerticalAlignment="Top" Width="159" Height="27" FontSize="11"/>
 
     </Grid>
 </Window>

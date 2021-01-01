@@ -159,7 +159,9 @@ namespace DiffPatchWpf
             //---------------- end output file
 
 
-            OutputBlock.Text += "Done File Saved in " + "\r\n" + patchname + " Pacht created Ok!" + saltli;
+            OutputBlock.Text += "End Patch Succes Ok!!  patch.txt is created" + saltli;
+            OutputBlock.Text += "Here is Patch file " + patchname + saltli;
+            OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
             MessageBox.Show("Done File Saved in " + "\r\n" + patchname , " Pacht created Ok!");
         }
         //-----------------end btnDiff -------------------------------------
@@ -177,11 +179,6 @@ namespace DiffPatchWpf
             string varfile2 = tboxFile2.Text; // get tbox file2 path
             string file2pat = Path.GetDirectoryName(varfile2);          
             var patchedfilename = file2pat + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
-
-            OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + saltli;
-            OutputBlock.Text += "Here is Patched file " + patchedfilename + saltli;
-
-
             OutputBlock.Text += "Patching ... " + saltli;
 
             //------------- bytes ori2
@@ -248,18 +245,41 @@ namespace DiffPatchWpf
                     //------------------end change values in positions
 
 
-                }
+                }               
+
+                OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + saltli;
+                OutputBlock.Text += "Here is Patched file " + patchedfilename + saltli;
+                OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
+
+                OutputBlock.Text += "Acepted do";
+                MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!");
+
             }
             lines = list.ToArray();
 
             //---------------end read file patch
 
-           // MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!");
-            OutputBlock.Text += "Done File Saved in " + saltli + patchedfilename + "Patched OK!"+ saltli;
+
         }
+
+
         // ------------------ end btnPatch --------------------------------
 
 
+        //-----------menu headeer
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string saltli = "\r\n";
+            string wallet = "1Mmwhdw4mQzbuLbmPFdEF2uXMVi8X3kv68";           
+            var response = MessageBox.Show("Donate BTC " + saltli + saltli + wallet + saltli + saltli + "Paypal reproteq@gmail.com" + saltli + saltli + "Copyright 2021 Reproteq® \r\n\r\nCopy adress btc to clipboard?", "", MessageBoxButton.YesNo);  if (response == MessageBoxResult.Yes) { Clipboard.SetText(wallet); }
+
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        //-----------end menu header
 
 
 
