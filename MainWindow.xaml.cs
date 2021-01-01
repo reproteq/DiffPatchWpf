@@ -29,12 +29,8 @@ namespace DiffPatchWpf
         {
             InitializeComponent();
             Debug.WriteLine("Reproteq Diff Patch v1.0");
-            OutputBlock.Text = "Reproteq Diff Patch v1.1  Author:TT 2021" + "\r\n";
-            
-            var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
-            if (currentDirectory.Contains(" ")) 
-            { MessageBox.Show("Error . To run this program the path does not have to contain spaces or other strange characters.please run this program from another path example C:\\Users\\yourUser\\Desktop\\DiffPatchWpf\\DiffPatchWpf.exe", "Alert"); }
-           
+            OutputBlock.Text = "Reproteq Diff Patch v1.2  Author:TT 2021" + "\r\n";     
+
         }
 
         //--------------------- btn open file1 -----------------------------------
@@ -102,73 +98,171 @@ namespace DiffPatchWpf
         private void btnDiff_Click(object sender, RoutedEventArgs e)
         {
             OutputBlock.Text = "Run Diff Algo" + "\r\n";
-            string quote = "\"";
-            var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
-            OutputBlock.Text += "Path " + currentDirectory + "\r\n"; // output view
-            //var exePathDiff = currentDirectory + @"\hdiffz.exe";  // path to diff.exe    
-            var exePathDiff = currentDirectory + @"\hdiffz.exe";  // path to diff.exe  
-            OutputBlock.Text += "hdiffz " + exePathDiff + "\r\n"; // output viewer
+            string saltli = "\r\n";
+
             string varfile1 = tboxFile1.Text;// get tbox file1 path
             string filename1 = Path.GetFileName(varfile1);
             string strfile1 = Path.GetFileNameWithoutExtension(filename1);
             string file1pat = Path.GetDirectoryName(varfile1);
-            //var patchname = currentDirectory + @"\"+ strfile1 + "-patch.ips";   // output file patchname
-            var patchname = file1pat + @"\" + strfile1 + "-patch.ips";   // output file patchname            
+            var patchname = file1pat + @"\" + strfile1 + "-patch.txt";   // output file patchname            
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-            System.Diagnostics.Process process1;
-            process1 = new System.Diagnostics.Process();
-            process1.StartInfo.FileName = "cmd.exe";
-            string Diffcommand = "/k start " + exePathDiff  + " -f -m-0 -C-no " + quote + varfile1 + quote + " " + quote + varfile2 + quote+ " " + quote + patchname + quote + " & exit";
-            Debug.WriteLine(Diffcommand);
-            //string Diffcommand = "/k start " + exePathDiff + " -f -m-0 -C-no -s-16m " + varfile1 + " " + varfile2 + " " + patchname + " & exit";
-            process1.StartInfo.Arguments = Diffcommand;
-            OutputBlock.Text += "Cmd " + Diffcommand + "\r\n";
-            OutputBlock.Text += "Start Diff ..." + "\r\n";
-            process1.Start();              
-            process1.WaitForExit(2);
-            process1.Close();
-            OutputBlock.Text += "End Diff Succes Ok!!  patch.ips is created" + "\r\n";
-            OutputBlock.Text += "Here is Patch file " + patchname + "\r\n";
-            OutputBlock.Text += "Thanks for use this tool " + "\r\n";
-            MessageBox.Show("Done File Saved in " + "\r\n" + patchname , "Diff Ok!");
+            OutputBlock.Text += "Comparing ... " + saltli;            
+
+            //------------- bytes ori
+            byte[] Bytes_Ori;
+            using (StreamReader sr = new StreamReader(varfile1))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    sr.BaseStream.CopyTo(ms);
+                    Bytes_Ori = ms.ToArray();
+                }
+            }
+            //-------------end bytes ori
+
+            //---------------bytes mod
+            byte[] Bytes_Mod;
+            using (StreamReader sr = new StreamReader(varfile2))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    sr.BaseStream.CopyTo(ms);
+                    Bytes_Mod = ms.ToArray();
+                }
+            }
+            //---------------endbytes mod
+
+            //------------------ outputblock
+            for (int i = 0; i < Bytes_Ori.Length; i++)
+            {
+                if (Bytes_Ori[i] != Bytes_Mod[i])
+                {
+                    OutputBlock.Text += "Addr: 0x" + i.ToString("X2") + "  Ori: 0x" + Bytes_Ori[i].ToString("X2") + "  Mod: 0x" + Bytes_Mod[i].ToString("X2") + saltli;                
+                }
+            }
+            //------------------end outputblock
+
+
+            //----------------- output file
+            using (var sw = new StreamWriter(patchname))
+            {
+                for (int i = 0; i < Bytes_Ori.Length; i++)
+                {
+                    if (Bytes_Ori[i] != Bytes_Mod[i])
+                    {
+                        //sw.WriteLine("0x" + i.ToString("X2") + " 0x"+ Bytes_Mod[i].ToString("X2"), i);
+                        sw.WriteLine(i.ToString() + " 0x" + Bytes_Mod[i].ToString("X2"), i);
+                        //sw.WriteLine(i.ToString() + " " + Bytes_Mod[i].ToString("X2"), i);
+                    }
+                }               
+            }
+            //---------------- end output file
+
+
+            OutputBlock.Text += "Done File Saved in " + "\r\n" + patchname + " Pacht created Ok!" + saltli;
+            MessageBox.Show("Done File Saved in " + "\r\n" + patchname , " Pacht created Ok!");
         }
         //-----------------end btnDiff -------------------------------------
+
 
 
         //-----------------btnPatch ---------------------------------------
         private void btnPatch_Click(object sender, RoutedEventArgs e)
         {
             OutputBlock.Text = "Run Patch Algo" + "\r\n";
-            string quote = "\"";
-            var currentDirectory = System.IO.Directory.GetCurrentDirectory();  // current dir
-            OutputBlock.Text += "Path " + currentDirectory + "\r\n"; // output view
-            var exePathPatch = currentDirectory + @"\hpatchz.exe"; // path to patcher.exe         
-            OutputBlock.Text += "hpatchz " + exePathPatch + "\r\n"; // output viewer
+            string saltli = "\r\n";
             string varfile1 = tboxFile1.Text;// get tbox file1 path
             string filename1 = Path.GetFileName(varfile1);
             string strfile1 = Path.GetFileNameWithoutExtension(filename1);
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-            string file2pat = Path.GetDirectoryName(varfile2);
-            //var patchedfilename = currentDirectory + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
+            string file2pat = Path.GetDirectoryName(varfile2);          
             var patchedfilename = file2pat + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
-            System.Diagnostics.Process process2;
-            process2 = new System.Diagnostics.Process();
-            process2.StartInfo.FileName = "cmd.exe";            
-            string Patchcommand = "/k start " + exePathPatch + " " + quote + varfile1 + quote + " " + quote + varfile2 + quote + " " + quote + patchedfilename + quote + " & exit";
-            //string Patchcommand = "/k start " + exePathPatch + " " + varfile1 + " " + varfile2 + " " + patchedfilename + " & exit";
-            process2.StartInfo.Arguments = Patchcommand;
-            Debug.WriteLine(Patchcommand);
-            process2.Start();
-            OutputBlock.Text += "Cmd " + Patchcommand + "\r\n";
-            OutputBlock.Text += "Start Patching ..." + "\r\n";
-            process2.WaitForExit(2);
-            process2.Close();
-            OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + "\r\n";
-            OutputBlock.Text += "Here is Patched file " + patchedfilename + "\r\n";
-            OutputBlock.Text += "Thanks for use this tool " + "\r\n";
-            MessageBox.Show("Done File Saved in " + "\r\n" + patchedfilename, "Patched OK!");
+
+            OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + saltli;
+            OutputBlock.Text += "Here is Patched file " + patchedfilename + saltli;
+
+
+            OutputBlock.Text += "Patching ... " + saltli;
+
+            //------------- bytes ori2
+           
+            byte[] Bytes_Ori;
+            using (StreamReader sr = new StreamReader(varfile1))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    sr.BaseStream.CopyTo(ms);
+                    Bytes_Ori = ms.ToArray();    
+                }
+            }
+            //-------------end bytes ori
+
+
+
+
+            //----------------- output file
+
+            using (FileStream stream = new FileStream(patchedfilename, FileMode.Create, FileAccess.Write, FileShare.None))
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            {
+                for (int i = 0; i < Bytes_Ori.Length; i++)
+                {
+                    writer.Write((byte)Bytes_Ori[i]);
+                  //  OutputBlock.Text += "writing" + saltli;
+                }
+            }
+
+
+            //---------------- end output file
+
+            //-----------read file patch
+            string[] lines;
+
+            var list = new List<string>();
+            var fileStream = new FileStream(varfile2, FileMode.Open, FileAccess.Read);
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                string line;
+
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                   // OutputBlock.Text += line + saltli;
+
+
+                    string myString = line;
+                    var strpart1 = myString.Substring(0, myString.IndexOf(' '));
+                    var strpart2 = myString.Substring(myString.IndexOf(' ')); 
+                    string hex = strpart2;
+                    string hexTrim = String.Concat(hex.Where(c => !Char.IsWhiteSpace(c)));
+                    int value = Convert.ToInt32(hexTrim, 16);
+                    byte byteVal = Convert.ToByte(value);
+                    OutputBlock.Text += "Addr"+  strpart1 + " Val" +strpart2+ saltli;
+                    //------------------change values in positions
+                    using (var stream = new FileStream(patchedfilename, FileMode.Open, FileAccess.ReadWrite))
+                    {
+                        stream.Position = Int32.Parse(strpart1);// long 
+                        stream.WriteByte(byteVal); // byte
+                    }
+
+                    //------------------end change values in positions
+
+
+                }
+            }
+            lines = list.ToArray();
+
+            //---------------end read file patch
+
+           // MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!");
+            OutputBlock.Text += "Done File Saved in " + saltli + patchedfilename + "Patched OK!"+ saltli;
         }
         // ------------------ end btnPatch --------------------------------
+
+
+
+
+
 
     }
     //---------------------- end main
