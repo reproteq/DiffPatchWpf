@@ -59,7 +59,7 @@ namespace DiffPatchWpf
             //------------------------ <btn open file2()> -------------------
             OpenFileDialog fileDialog2 = new OpenFileDialog();
             fileDialog2.Multiselect = true;
-            fileDialog2.Filter = "All Files|*.*|Patch Files|*.ips |Bin Files|*.bin";
+            fileDialog2.Filter = "All Files|*.*|Patch Files|*.txt |Bin Files|*.bin";
             fileDialog2.DefaultExt = ".bin";
             Nullable<bool> dialogOK2 = fileDialog2.ShowDialog();
 
