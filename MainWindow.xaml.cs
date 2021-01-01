@@ -4,18 +4,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Path = System.IO.Path;
 
 namespace DiffPatchWpf
@@ -61,7 +51,6 @@ namespace DiffPatchWpf
             //---------------------------- </ btn open file1 > ----------
         }
         // ------------------ end btn1 ---------------------------------------------
-
 
 
         //------------------- btn open file2 --------------------------------------
@@ -149,16 +138,13 @@ namespace DiffPatchWpf
                 for (int i = 0; i < Bytes_Ori.Length; i++)
                 {
                     if (Bytes_Ori[i] != Bytes_Mod[i])
-                    {
-                        //sw.WriteLine("0x" + i.ToString("X2") + " 0x"+ Bytes_Mod[i].ToString("X2"), i);
+                    {                        
                         sw.WriteLine(i.ToString() + " 0x" + Bytes_Mod[i].ToString("X2"), i);
-                        //sw.WriteLine(i.ToString() + " " + Bytes_Mod[i].ToString("X2"), i);
+                     
                     }
                 }               
             }
             //---------------- end output file
-
-
             OutputBlock.Text += "End Patch Succes Ok!!  patch.txt is created" + saltli;
             OutputBlock.Text += "Here is Patch file " + patchname + saltli;
             OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
@@ -182,7 +168,6 @@ namespace DiffPatchWpf
             OutputBlock.Text += "Patching ... " + saltli;
 
             //------------- bytes ori2
-           
             byte[] Bytes_Ori;
             using (StreamReader sr = new StreamReader(varfile1))
             {
@@ -193,7 +178,6 @@ namespace DiffPatchWpf
                 }
             }
             //-------------end bytes ori
-
 
 
 
@@ -208,8 +192,6 @@ namespace DiffPatchWpf
                   //  OutputBlock.Text += "writing" + saltli;
                 }
             }
-
-
             //---------------- end output file
 
             //-----------read file patch
@@ -224,9 +206,6 @@ namespace DiffPatchWpf
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     list.Add(line);
-                   // OutputBlock.Text += line + saltli;
-
-
                     string myString = line;
                     var strpart1 = myString.Substring(0, myString.IndexOf(' '));
                     var strpart2 = myString.Substring(myString.IndexOf(' ')); 
@@ -241,28 +220,18 @@ namespace DiffPatchWpf
                         stream.Position = Int32.Parse(strpart1);// long 
                         stream.WriteByte(byteVal); // byte
                     }
-
                     //------------------end change values in positions
-
-
-                }               
+                }             
 
                 OutputBlock.Text += "End Patch Succes Ok!!  patched.bin is created" + saltli;
                 OutputBlock.Text += "Here is Patched file " + patchedfilename + saltli;
                 OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
-
                 OutputBlock.Text += "Acepted donations";
                 MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!");
-
             }
             lines = list.ToArray();
-
             //---------------end read file patch
-
-
         }
-
-
         // ------------------ end btnPatch --------------------------------
 
 
@@ -270,7 +239,6 @@ namespace DiffPatchWpf
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             string saltli = "\r\n";
-
             MessageBox.Show("reproteq@gmail.com" + saltli + saltli + "Copyright 2021 Reproteq® ");
         }
 
