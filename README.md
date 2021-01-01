@@ -1,34 +1,22 @@
 # DiffPatchWpf
 
-DiffPatchWpf  is a windows binary patch maker tool.
-
-Simple and nice interface writed in C#.
+DiffPatchWpf  simple binary patch maker tool.
  
-Compare two binary files and save the differences in new file patch.txt also named delta differential.
+Compare two binary files and save the differences between them in new file patch.txt
 
-Support large files and limit memory requires when diff & patch.
-
-Apply the patch in another binary fast and easy.
-
-you can make and patch any files for : srs, ecu , bsi, dash , rooms , iso, image , etc ....  very fast.
+Apply the patch in another binary fast and easy
+.
+Now you can apply the differences in another binary quickly and easily.
 
 
-example: 
-
-load orifile.bin  file 1 
-
-load modfile.bin  file 2
-
-click diff button for save differences in file patch.txt
-
-now you can apply this patch in other files
-
-load otherfile.bin file1
-
-load patch.ips
-
-click patch button for save file orifile-patched.bin
-
+example:
+ 
+1- load file ori
+2- load file mod
+3 -compare and save patch.txt
+4- load other file ori
+5- load patch
+6- apply patch and save file patched.bin
 
 
 
