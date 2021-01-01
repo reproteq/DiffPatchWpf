@@ -18,8 +18,7 @@ namespace DiffPatchWpf
         public MainWindow()
         {
             InitializeComponent();
-            Debug.WriteLine("Reproteq Diff Patch v1.0");
-            OutputBlock.Text = "Reproteq Diff Patch v1.2  Author:TT 2021" + "\r\n";     
+            OutputBlock.Text = "Reproteq Diff Patch v1.2  Author:TT 2021" + "\r\n"; 
 
         }
 
