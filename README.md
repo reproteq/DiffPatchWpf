@@ -5,26 +5,26 @@ DiffPatchWpf  simple binary patch maker tool.
 Compare two binary files and save the differences between them in new file patch.txt
 
 
-Apply the patch in another binary fast and easy
+Apply the patch in another binary fast and easy.
 
-.
+
 Now you can apply the differences in another binary quickly and easily.
 
 
 example:
  
  
-1- load file ori
+1- Load file Aori.bin
 
-2- load file mod
+2- Load file Amod.bin
 
-3- compare and save patch.txt
+3- Compare and save Aori-patch.txt
 
-4- load other file ori
+4- Load file Bori.bin
 
-5- load patch
+5- Load patch Aori-patch.txt
 
-6- apply patch and save file patched.bin
+6- Apply patch and save file Bori-patched.bin
 
 
 
