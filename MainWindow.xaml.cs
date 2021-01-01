@@ -251,7 +251,7 @@ namespace DiffPatchWpf
                 OutputBlock.Text += "Here is Patched file " + patchedfilename + saltli;
                 OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
 
-                OutputBlock.Text += "Acepted do";
+                OutputBlock.Text += "Acepted donations";
                 MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!");
 
             }
@@ -270,9 +270,8 @@ namespace DiffPatchWpf
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             string saltli = "\r\n";
-            string wallet = "1Mmwhdw4mQzbuLbmPFdEF2uXMVi8X3kv68";           
-            var response = MessageBox.Show("Donate BTC " + saltli + saltli + wallet + saltli + saltli + "Paypal reproteq@gmail.com" + saltli + saltli + "Copyright 2021 Reproteq® \r\n\r\nCopy adress btc to clipboard?", "", MessageBoxButton.YesNo);  if (response == MessageBoxResult.Yes) { Clipboard.SetText(wallet); }
 
+            MessageBox.Show("reproteq@gmail.com" + saltli + saltli + "Copyright 2021 Reproteq® ");
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
