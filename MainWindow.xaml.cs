@@ -18,7 +18,9 @@ namespace DiffPatchWpf
         public MainWindow()
         {
             InitializeComponent();
-            OutputBlock.Text = "Reproteq Diff Patch v1.2  Author:TT 2021" + "\r\n"; 
+            string saltli = "\r\n";
+            OutputBlock.Text = "Reproteq Diff Patch v1.2  Author:TT 2021" + saltli;
+            OutputBlock.Text += "Compare and save the differences between two binary files."+ saltli +  "To apply these changes to a third binary" + saltli;
 
         }
 
@@ -58,7 +60,7 @@ namespace DiffPatchWpf
             //------------------------ <btn open file2()> -------------------
             OpenFileDialog fileDialog2 = new OpenFileDialog();
             fileDialog2.Multiselect = true;
-            fileDialog2.Filter = "All Files|*.*|Patch Files|*.txt |Bin Files|*.bin";
+            fileDialog2.Filter = "All Files|*.*|Patch Files|*.txt|Bin Files|*.bin";
             fileDialog2.DefaultExt = ".bin";
             Nullable<bool> dialogOK2 = fileDialog2.ShowDialog();
 
