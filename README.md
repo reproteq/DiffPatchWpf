@@ -46,3 +46,9 @@ Versión 16.7.7
 .NETFramework,Version=v4.7.2
 
 Tested in windows 10x64bits
+
+Donations btc
+1Mmwhdw4mQzbuLbmPFdEF2uXMVi8X3kv68
+
+paypal 
+reproteq@gmail.com
