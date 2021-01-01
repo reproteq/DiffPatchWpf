@@ -46,10 +46,3 @@ Versión 16.7.7
 .NETFramework,Version=v4.7.2
 
 Tested in windows 10x64bits
-
-
-Notes!
-
-To forget problems, use filenames that do not contain spaces or strange characters and everything will be fine.
-
-Thanks.
