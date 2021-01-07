@@ -140,8 +140,10 @@ namespace DiffPatchWpf
                 {
                     if (Bytes_Ori[i] != Bytes_Mod[i])
                     {                        
-                        sw.WriteLine(i.ToString() + " 0x" + Bytes_Mod[i].ToString("X2"), i);
-                     
+                        //sw.WriteLine(i.ToString() + " 0x" + Bytes_Mod[i].ToString("X2"), i); //addr decimal 
+                        //sw.WriteLine(i.ToString("X2") + " 0x" + Bytes_Mod[i].ToString("X2"), i); // ff 0x addr hex
+                        sw.WriteLine("0x" + i.ToString("X2") + " 0x" + Bytes_Mod[i].ToString("X2"), i); //0x 0x addr hex
+
                     }
                 }               
             }
@@ -214,11 +216,16 @@ namespace DiffPatchWpf
                     string hexTrim = String.Concat(hex.Where(c => !Char.IsWhiteSpace(c)));
                     int value = Convert.ToInt32(hexTrim, 16);
                     byte byteVal = Convert.ToByte(value);
-                    OutputBlock.Text += "Addr "+  strpart1 + " Val " +strpart2+ saltli;
+                    OutputBlock.Text += "Addr "+  strpart1 + "     Val " +strpart2+ saltli;
                     //------------------change values in positions
                     using (var stream = new FileStream(patchedfilename, FileMode.Open, FileAccess.ReadWrite))
                     {
-                        stream.Position = Int32.Parse(strpart1);// long 
+                        // stream.Position = Int32.Parse(strpart1);// long                          
+                        string addrhex = strpart1.Substring(2); // remove 0x from first part of line patch txt
+                        int addrin = int.Parse(addrhex, System.Globalization.NumberStyles.HexNumber);
+                        
+                        stream.Position = addrin;// address int long 
+
                         stream.WriteByte(byteVal); // byte
                     }
                     //------------------end change values in positions
