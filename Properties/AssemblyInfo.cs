@@ -8,12 +8,12 @@ using System.Windows;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("DiffPatchWpf")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Binary Diff Patcher")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Reproteq")]
 [assembly: AssemblyProduct("DiffPatchWpf")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Reproteq 2020")]
+[assembly: AssemblyTrademark("Reproteq")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 

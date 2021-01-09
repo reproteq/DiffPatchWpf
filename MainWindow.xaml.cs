@@ -151,7 +151,7 @@ namespace DiffPatchWpf
             OutputBlock.Text += "End Patch Succes Ok!!  patch.txt is created" + saltli;
             OutputBlock.Text += "Here is Patch file " + patchname + saltli;
             OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
-            MessageBox.Show("Done File Saved in " + "\r\n" + patchname , " Pacht created Ok!");
+            MessageBox.Show("Done File Saved in " + "\r\n" + patchname , " Patch created Ok!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         //-----------------end btnDiff -------------------------------------
 
@@ -216,7 +216,7 @@ namespace DiffPatchWpf
                     string hexTrim = String.Concat(hex.Where(c => !Char.IsWhiteSpace(c)));
                     int value = Convert.ToInt32(hexTrim, 16);
                     byte byteVal = Convert.ToByte(value);
-                    OutputBlock.Text += "Addr "+  strpart1 + "     Val " +strpart2+ saltli;
+                    OutputBlock.Text += "Addr "+  strpart1 + "     Value " +strpart2+ saltli;
                     //------------------change values in positions
                     using (var stream = new FileStream(patchedfilename, FileMode.Open, FileAccess.ReadWrite))
                     {
@@ -235,7 +235,7 @@ namespace DiffPatchWpf
                 OutputBlock.Text += "Here is Patched file " + patchedfilename + saltli;
                 OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
                 OutputBlock.Text += "Acepted donations";
-                MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!");
+                MessageBox.Show("Done File Saved in " + saltli + patchedfilename, "Patched OK!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             lines = list.ToArray();
             //---------------end read file patch
@@ -247,7 +247,12 @@ namespace DiffPatchWpf
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             string saltli = "\r\n";
-            MessageBox.Show("reproteq@gmail.com" + saltli + saltli + "Copyright 2021 Reproteq® ");
+            MessageBox.Show("DiffPatchWpf is a Free Software!" +saltli + saltli +
+                "Compare two binary files and save the differences between them in new file patch.txt" +saltli +saltli+
+                "Apply the patch in another binary fast and easy." + saltli + saltli +
+                "Source Code  https://github.com/reproteq/DiffPatchWpf" + saltli + saltli +
+                "Copyright 2021 Reproteq® " + saltli + saltli +
+                "Contact reproteq@gmail.com" ,"About", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
