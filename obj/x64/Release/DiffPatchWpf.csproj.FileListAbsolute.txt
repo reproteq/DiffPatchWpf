@@ -12,3 +12,4 @@ C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x64\Release\DiffPatchWpf.csproj.G
 C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x64\Release\DiffPatchWpf.csproj.CoreCompileInputs.cache
 C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x64\Release\DiffPatchWpf.exe
 C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x64\Release\DiffPatchWpf.pdb
+C:\Users\w10\Documents\GitHub\DiffPatchWpf\obj\x64\Release\DiffPatchWpf.csprojAssemblyReference.cache

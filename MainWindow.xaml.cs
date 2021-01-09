@@ -1,4 +1,11 @@
-﻿using Microsoft.Win32;
+﻿/*
+ * Reproteq Diff Patch v1.2  Author: Alejandro Gregori Tomás (TT)  2021
+ * This is a free software 
+ * Copyright 2021 Reproteq®
+ * contact  reproteq@gmail.com
+ */
+
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
