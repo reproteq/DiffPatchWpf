@@ -91,15 +91,27 @@ namespace DiffPatchWpf
             string saltli = "\r\n";
 
             string varfile1 = tboxFile1.Text;// get tbox file1 path
-            string filename1 = Path.GetFileName(varfile1);
-            string strfile1 = Path.GetFileNameWithoutExtension(filename1);
-            string file1pat = Path.GetDirectoryName(varfile1);
-            var patchname = file1pat + @"\" + strfile1 + "-patch.txt";   // output file patchname            
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-            OutputBlock.Text += "Comparing ... " + saltli;            
 
-            //------------- bytes ori
-            byte[] Bytes_Ori;
+            if (varfile1 == string.Empty || varfile2 == string.Empty)
+            {
+                MessageBox.Show("LOAD TWO FILES PLEASE !!", "Not Files Loaded", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                OutputBlock.Text = "Run Diff Algo Error" + "\r\n";
+                OutputBlock.Text += "LOAD TWO FILES PLEASE !!" + "\r\n";
+            }
+
+            else {
+                OutputBlock.Text = "Run Diff Algo" + "\r\n";
+
+                string filename1 = Path.GetFileName(varfile1);
+                string strfile1 = Path.GetFileNameWithoutExtension(filename1);
+                string file1pat = Path.GetDirectoryName(varfile1);
+                var patchname = file1pat + @"\" + strfile1 + "-patch.txt";   // output file patchname            
+                
+                OutputBlock.Text += "Comparing ... " + saltli;
+
+                //------------- bytes ori
+                byte[] Bytes_Ori;
             using (StreamReader sr = new StreamReader(varfile1))
             {
                 using (MemoryStream ms = new MemoryStream())
@@ -153,9 +165,9 @@ namespace DiffPatchWpf
             OutputBlock.Text += "Thanks for use this tool created by TT 2021" + saltli;
             MessageBox.Show("Done File Saved in " + "\r\n" + patchname , " Patch created Ok!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        //-----------------end btnDiff -------------------------------------
+            //-----------------end btnDiff -------------------------------------
 
-
+        }
 
         //-----------------btnPatch ---------------------------------------
         private void btnPatch_Click(object sender, RoutedEventArgs e)
@@ -163,13 +175,27 @@ namespace DiffPatchWpf
             OutputBlock.Text = "Run Patch Algo" + "\r\n";
             string saltli = "\r\n";
             string varfile1 = tboxFile1.Text;// get tbox file1 path
-            string filename1 = Path.GetFileName(varfile1);
-            string strfile1 = Path.GetFileNameWithoutExtension(filename1);
             string varfile2 = tboxFile2.Text; // get tbox file2 path
-            string file2pat = Path.GetDirectoryName(varfile2);          
-            var patchedfilename = file2pat + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
-            OutputBlock.Text += "Patching ... " + saltli;
 
+
+            if (varfile1 == string.Empty || varfile2 == string.Empty)
+            {
+                MessageBox.Show("LOAD TWO FILES PLEASE !!", "Not Files Loaded", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                OutputBlock.Text = "Run Patch Algo Error" + "\r\n";
+                OutputBlock.Text += "LOAD TWO FILES PLEASE !!" + "\r\n";
+            }
+
+            else
+            {
+                OutputBlock.Text = "Run Patch Algo" + "\r\n";
+                string filename1 = Path.GetFileName(varfile1);
+                string strfile1 = Path.GetFileNameWithoutExtension(filename1);
+
+                string file2pat = Path.GetDirectoryName(varfile2);
+                var patchedfilename = file2pat + @"\" + strfile1 + "-patched.bin";   // output file patchnamefile
+                OutputBlock.Text += "Patching ... " + saltli;
+
+           
             //------------- bytes ori2
             byte[] Bytes_Ori;
             using (StreamReader sr = new StreamReader(varfile1))
@@ -240,8 +266,8 @@ namespace DiffPatchWpf
             lines = list.ToArray();
             //---------------end read file patch
         }
-        // ------------------ end btnPatch --------------------------------
-
+            // ------------------ end btnPatch --------------------------------
+        }
 
         //-----------menu headeer
         private void MenuItem_Click(object sender, RoutedEventArgs e)
