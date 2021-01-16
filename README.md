@@ -55,3 +55,4 @@ Donations btc
 paypal 
 
 reproteq@gmail.com
+[![Github All Releases](https://img.shields.io/github/downloads/reproteq/DiffPatchWpf/total.svg)]()
