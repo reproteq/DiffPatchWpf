@@ -25,6 +25,7 @@ namespace DiffPatchWpf
         public MainWindow()
         {
             InitializeComponent();
+            MouseDown += delegate { DragMove(); };
             string saltli = "\r\n";
             OutputBlock.Text = "Reproteq Diff Patch v1.2  Author:TT 2021" + saltli;
             OutputBlock.Text += "Compare and save the differences between two binary files."+ saltli +  "To apply these changes to a third binary" + saltli;

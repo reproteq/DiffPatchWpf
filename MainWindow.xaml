@@ -23,7 +23,7 @@
                     <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
                 </MenuItem>
             </Menu>
-            <TextBox AcceptsReturn="True" />
+           
         </DockPanel>
 
         <Label x:Name="labelSoft" Content="Copyright 2021 Reproteq®" Margin="123,421,104.667,0" FontSize="9" Height="27" VerticalAlignment="Top" />
@@ -50,4 +50,5 @@
 
 
     </Grid>
+    
 </Window>
