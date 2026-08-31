@@ -1,3 +1,9 @@
+> ⚠️ ** PROJECT MOVED / COMPLETED**
+
+This repository is no longer under active development. The project continues at diffpatchtool.com.
+
+> 👉 **[Enlace a tu nuevo repositorio](https://github.com/reproteq/diffpatchtool)**
+
 # DiffPatchWpf
 
 DiffPatchWpf  simple binary patch maker tool.
