@@ -3,6 +3,7 @@
 This repository is no longer under active development. The project continues at diffpatchtool.com.
 
 > 👉 **[Link to new repositori](https://github.com/reproteq/diffpatchtool)**
+> 👉 **[Link to diffpatchtool](https://diffpatchtool.com/)**
 
 # DiffPatchWpf
 
